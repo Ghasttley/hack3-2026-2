@@ -1,3 +1,42 @@
+# Consola MDR — Cuadrilla (completar)
+
+| Integrante | Código UTEC |
+|:--|:--|
+| _Nombre Apellido_ | _código_ |
+| _Nombre Apellido_ | _código_ |
+| _Nombre Apellido_ | _código_ |
+
+**Producción:** https://_su-app_.vercel.app
+
+## Cómo ejecutar
+
+```bash
+nvm use 24          # Node 24 LTS
+npm ci
+cp .env.example .env   # y completar los valores
+npm run dev            # http://localhost:5173 (X-Lumon-Build = dev)
+npm run build          # tsc estricto + vite build
+```
+
+## Stack
+
+React 19 · TypeScript estricto · Vite 8 · React Router 7 · Tailwind CSS 4 · Fetch API · XMLHttpRequest (progreso de subida) · WebSocket nativo · SSE leído con fetch + ReadableStream. Sin librerías de componentes, de datos, de virtualización, de drag and drop, de recorte ni de WebSocket.
+
+## Despliegue (Vercel)
+
+1. Importar el repo en Vercel (framework Vite; `vercel.json` ya define build, rewrites de SPA y cabeceras de seguridad/CSP).
+2. Variables de entorno en Vercel: las de `.env.example`.
+3. `X-Lumon-Build` se inyecta en build desde `VERCEL_GIT_COMMIT_SHA` (7 caracteres); en local vale `dev`.
+4. En `/estado` → "1. Pedir token" con el origen de producción → pegar el token (solo el token) en `public/.well-known/lumon-verification.txt` → commit + deploy → "3. Verificar".
+
+## Storage
+
+- **Supabase:** bucket público `lumon-media`, solo `image/webp` y ≤ 300 KB; política RLS que permite a `anon` solo INSERT dentro de `TEAM-XXX/`. En el front solo va la clave publicable.
+- **Cloudinary:** preset unsigned, prefijo `lumon/<TEAM_CODE>/`, solo webp, sin sobrescritura. En el front solo cloud name y preset.
+- Registrar desde `/estado` → "Registrar y verificar storage".
+
+---
+
 # Hackathon Frontend: Lumon Industries — Macrodata Refinement
 
 <div align="center">
