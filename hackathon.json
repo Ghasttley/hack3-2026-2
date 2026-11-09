@@ -1,11 +1,11 @@
 {
   "teamCode": "TEAM-000",
-  "teamName": "Nombre de la cuadrilla",
+  "teamName": "Hack3Group21",
   "deployUrl": "https://",
   "storageProvider": "SUPABASE | CLOUDINARY",
   "integrantes": [
-    { "nombre": "Nombre Apellido", "codigo": "CODIGO UTEC" },
-    { "nombre": "Nombre Apellido", "codigo": "CODIGO UTEC" },
-    { "nombre": "Nombre Apellido", "codigo": "CODIGO UTEC" }
+    { "nombre": "Azul Arbulú Silva", "codigo": "202510303" },
+    { "nombre": "Alba Abigail Cabrera Pilco", "codigo": "202510505" },
+    { "nombre": "Dylan Carlo Van Oordt Arbulú", "codigo": "202510757" }
   ]
 }
