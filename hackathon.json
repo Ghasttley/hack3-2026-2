@@ -1,8 +1,8 @@
 {
-  "teamCode": "TEAM-000",
+  "teamCode": "TEAM-042",
   "teamName": "Hack3Group21",
-  "deployUrl": "https://",
-  "storageProvider": "SUPABASE | CLOUDINARY",
+  "deployUrl": "https://hack3-2026-2-z7tf.vercel.app/",
+  "storageProvider": "SUPABASE",
   "integrantes": [
     { "nombre": "Azul Arbulú Silva", "codigo": "202510303" },
     { "nombre": "Alba Abigail Cabrera Pilco", "codigo": "202510505" },
