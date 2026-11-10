@@ -1,0 +1,145 @@
+@import 'tailwindcss';
+
+:root {
+  color-scheme: dark;
+  font-family: ui-sans-serif, system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
+}
+
+body {
+  margin: 0;
+  background: #020617;
+  color: #f1f5f9;
+}
+
+@layer components {
+  .btn-primary {
+    @apply inline-flex items-center justify-center rounded-md bg-sky-600 px-4 py-2 text-sm font-medium text-white hover:bg-sky-500 disabled:cursor-not-allowed disabled:opacity-50;
+  }
+  .btn-secondary {
+    @apply inline-flex items-center justify-center rounded-md border border-slate-600 bg-slate-800 px-3 py-1.5 text-sm text-slate-100 hover:bg-slate-700 disabled:cursor-not-allowed disabled:opacity-50;
+  }
+  .input {
+    @apply w-full rounded-md border border-slate-600 bg-slate-950 px-3 py-2 text-sm text-slate-100 placeholder:text-slate-500;
+  }
+  .label {
+    @apply mb-1 block text-sm text-slate-300;
+  }
+}
+
+:focus-visible {
+  outline: 3px solid #38bdf8;
+  outline-offset: 2px;
+}
+
+.skip-link {
+  position: absolute;
+  left: -9999px;
+  top: 0;
+  z-index: 60;
+  background: #0284c7;
+  color: white;
+  padding: 0.5rem 1rem;
+}
+.skip-link:focus {
+  left: 1rem;
+}
+
+.spinner {
+  width: 1.25rem;
+  height: 1.25rem;
+  border-radius: 9999px;
+  border: 3px solid #334155;
+  border-top-color: #38bdf8;
+  animation: spin 0.8s linear infinite;
+}
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* --- Grilla MDR --- */
+.mdr-cell {
+  position: absolute;
+  display: grid;
+  place-items: center;
+  font-family: ui-monospace, Menlo, Consolas, monospace;
+  font-size: 15px;
+  color: #bae6fd;
+  user-select: none;
+  box-sizing: border-box;
+}
+.mdr-cell.placeholder {
+  background: repeating-linear-gradient(45deg, #0f172a 0 4px, #111c33 4px 8px);
+}
+.mdr-cell.scary {
+  font-weight: 700;
+  color: #ffffff;
+}
+.mdr-cell.scary > span {
+  display: inline-block;
+}
+/* Las celdas que dan miedo tiemblan según su tremor (variables --amp y --dur). */
+@media (prefers-reduced-motion: no-preference) {
+  .mdr-cell.scary > span {
+    animation: tremble var(--dur, 400ms) ease-in-out infinite alternate;
+  }
+}
+/* Con reduced motion se distinguen sin movimiento: subrayado y fondo según intensidad. */
+@media (prefers-reduced-motion: reduce) {
+  .mdr-cell.scary {
+    text-decoration: underline;
+    text-decoration-thickness: 2px;
+    background: rgba(56, 189, 248, var(--alpha, 0.2));
+  }
+  .transition-\[width\] {
+    transition: none;
+  }
+}
+@keyframes tremble {
+  0% {
+    transform: translate(0, 0) scale(1);
+  }
+  25% {
+    transform: translate(calc(var(--amp, 1px) * -1), var(--amp, 1px)) scale(1.06);
+  }
+  50% {
+    transform: translate(var(--amp, 1px), 0) scale(1.1);
+  }
+  75% {
+    transform: translate(0, calc(var(--amp, 1px) * -1)) scale(1.04);
+  }
+  100% {
+    transform: translate(calc(var(--amp, 1px) * -0.5), calc(var(--amp, 1px) * 0.5)) scale(1.08);
+  }
+}
+.mdr-cell.bin-W {
+  background: #14532d;
+  color: #bbf7d0;
+}
+.mdr-cell.bin-F {
+  background: #713f12;
+  color: #fef08a;
+}
+.mdr-cell.bin-D {
+  background: #4c1d95;
+  color: #ddd6fe;
+}
+.mdr-cell.bin-M {
+  background: #7f1d1d;
+  color: #fecaca;
+}
+.mdr-cell.selected {
+  background: rgba(56, 189, 248, 0.35);
+  box-shadow: inset 0 0 0 2px #38bdf8;
+  touch-action: none;
+  cursor: grab;
+}
+.mdr-cell.claimed {
+  background: repeating-linear-gradient(-45deg, rgba(249, 115, 22, 0.45) 0 4px, rgba(249, 115, 22, 0.15) 4px 8px);
+}
+.mdr-cell:focus {
+  outline: 3px solid #facc15;
+  outline-offset: -3px;
+  z-index: 2;
+}
